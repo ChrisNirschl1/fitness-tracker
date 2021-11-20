@@ -2,13 +2,14 @@ const express = require("express");
 const mongojs = require("mongojs");
 const mongoose = require("mongoose");
 const logger = require("morgan");
-
+const view = require("./routes/view");
+const apiRoutes = require("./routes/apiRoutes");
 const PORT = process.env.PORT || 3000;
 
 const app = express();
 
 app.use(logger("dev"));
-const db = require("./models");
+// const db = require("./models");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -21,9 +22,10 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { use
 // const collections = ["excercises"];
 
 
+app.use("/api", apiRoutes);
+app.use("/", view);
 
-
-app.listen(3000, () => {
+app.listen(PORT, () => {
     console.log("App running on port 3000!");
   });
   

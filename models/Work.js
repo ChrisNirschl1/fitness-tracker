@@ -7,20 +7,26 @@ const WorkoutSchema = new Schema({
       type: Date
     },
   
-    excercise: [
+    excercises: [
     {
      type:{
-         type: String
+         type: String,
+         trim: true,
+         required: 'Need a type'
+
      }
     },
     {
         name:{
-            type: String
+            type: String,
+            trim: true,
+            required: 'Need a name'
         }
        },
        {
-        durationn:{
-            type: Number
+        duration:{
+            type: Number,
+            required: 'Need a duration'
         }
        },
        {
