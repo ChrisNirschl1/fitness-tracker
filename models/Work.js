@@ -50,5 +50,5 @@ completed: {
 }
   });
 
-  const Workout = mongoose.model("WorkoutSchema", WorkoutSchema);
+  const Workout = mongoose.model("Workouts", WorkoutSchema);
   module.exports = Workout;
